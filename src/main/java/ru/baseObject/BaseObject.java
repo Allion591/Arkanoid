@@ -1,6 +1,8 @@
 package main.java.ru.baseObject;
 
-public class BaseObject {
+import main.java.ru.canvas.Canvas;
+
+public abstract class BaseObject {
     private double x;
     private double y;
     private double radius;
@@ -34,4 +36,14 @@ public class BaseObject {
     public void setRadius(double radius) {
         this.radius = radius;
     }
+
+    public boolean intersects(BaseObject object) {
+        double ac = Math.abs(object.getY() - getY());
+        double cb = Math.abs(object.getX() - getX());
+        return Math.hypot(ac, cb) < radius + object.getRadius();
+    }
+
+    public abstract void draw(Canvas canvas);
+
+    public abstract void move();
 }
