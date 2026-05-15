@@ -1,8 +1,42 @@
 package main.java.ru.arkanoid;
 
+import main.java.ru.ball.Ball;
+import main.java.ru.brick.Brick;
+import main.java.ru.stand.Stand;
+
+import java.util.List;
+
 public class Arkanoid {
+    static Arkanoid game;
     private int width;
     private int height;
+    private Ball ball;
+    private Stand stand;
+    private List<Brick> bricks;
+
+    public Ball getBall() {
+        return ball;
+    }
+
+    public void setBall(Ball ball) {
+        this.ball = ball;
+    }
+
+    public Stand getStand() {
+        return stand;
+    }
+
+    public void setStand(Stand stand) {
+        this.stand = stand;
+    }
+
+    public List<Brick> getBricks() {
+        return bricks;
+    }
+
+    public void setBricks(List<Brick> bricks) {
+        this.bricks = bricks;
+    }
 
     public Arkanoid(int width, int height) {
         this.width = width;
@@ -28,4 +62,8 @@ public class Arkanoid {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public void run() {}
+
+    public void move() {}
 }

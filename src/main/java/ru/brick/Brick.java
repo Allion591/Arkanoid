@@ -1,4 +1,6 @@
 package main.java.ru.brick;
 
-public class Brick {
+import main.java.ru.baseObject.BaseObject;
+
+public class Brick extends BaseObject {
 }

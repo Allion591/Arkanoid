@@ -1,4 +1,6 @@
 package main.java.ru.ball;
 
-public class Ball {
+import main.java.ru.baseObject.BaseObject;
+
+public class Ball extends BaseObject {
 }
