@@ -8,8 +8,6 @@ import java.util.List;
 
 public class Arkanoid {
     static Arkanoid game;
-    private int width;
-    private int height;
     private Ball ball;
     private Stand stand;
     private List<Brick> bricks;
@@ -37,6 +35,9 @@ public class Arkanoid {
     public void setBricks(List<Brick> bricks) {
         this.bricks = bricks;
     }
+
+    private int width;
+    private int height;
 
     public Arkanoid(int width, int height) {
         this.width = width;
