@@ -4,8 +4,8 @@ import main.java.ru.baseObject.BaseObject;
 import main.java.ru.canvas.Canvas;
 
 public class Brick extends BaseObject {
-    public Brick(double x, double y, double radius) {
-        super(x, y, radius);
+    public Brick(double x, double y) {
+        super(x, y, 3);
     }
 
     @Override
