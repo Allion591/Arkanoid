@@ -3,11 +3,13 @@ package main.java.ru.baseObject;
 import main.java.ru.canvas.Canvas;
 
 public abstract class BaseObject {
+    //координаты
     protected double x;
     protected double y;
+    //радиус объекта
     protected double radius;
 
-    public BaseObject(double x, double y, double radius) {
+    protected BaseObject(double x, double y, double radius) {
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -37,13 +39,34 @@ public abstract class BaseObject {
         this.radius = radius;
     }
 
-    public boolean intersects(BaseObject object) {
-        double ac = Math.abs(object.getY() - getY());
-        double cb = Math.abs(object.getX() - getX());
-        return Math.hypot(ac, cb) < radius + object.getRadius();
+    /**
+     * Метод рисует свой объект на "канвасе".
+     */
+    protected abstract void draw(Canvas canvas);
+
+    /**
+     * Двигаем себя на один ход.
+     */
+    protected abstract void move();
+
+    /**
+     * Проверяем - не выходит ли (x,y) за границы.
+     */
+    protected void checkBorders(double minx, double maxx, double miny, double maxy) {
+        if (x < minx) x = minx;
+        if (x > maxx) x = maxx;
+        if (y < miny) y = miny;
+        if (y > maxy) y = maxy;
     }
 
-    public abstract void draw(Canvas canvas);
-
-    public abstract void move();
+    /**
+     * Проверяем - пересекаются ли переданный(o) и наш(this) объекты.
+     */
+    public boolean intersects(BaseObject o) {
+        double dx = x - o.x;
+        double dy = y - o.y;
+        double destination = Math.sqrt(dx * dx + dy * dy);
+        double destination2 = Math.max(radius, o.radius);
+        return destination <= destination2;
+    }
 }
